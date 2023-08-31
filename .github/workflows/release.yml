@@ -39,3 +39,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ./Packaged/${{ github.event.repository.name }}-${{ github.ref_name }}.intunewin
+          generate_release_notes: true
