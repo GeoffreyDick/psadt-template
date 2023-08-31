@@ -33,11 +33,11 @@ jobs:
           mkdir .\Packaged
           & .\Content-Prep-Tool\IntuneWinAppUtil.exe -c .\Unpackaged -o .\Packaged -s Deploy-Application.exe
           ls -R .\Packaged
-          ren .\Packaged\Deploy-Application.intunewin ${{ github.event.repository.name }}-1.0.0.intunewin
+          ren .\Packaged\Deploy-Application.intunewin ${{ github.event.repository.name }}-${{ github.ref_name }}.intunewin
           ls -R .\Packaged
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: Release.txt
+          files: .\Packaged\${{ github.event.repository.name }}-${{ github.ref_name }}.intunewin
