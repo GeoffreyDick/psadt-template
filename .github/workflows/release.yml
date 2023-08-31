@@ -38,4 +38,4 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: .\Packaged\${{ github.event.repository.name }}-${{ github.ref_name }}.intunewin
+          files: ./Packaged/${{ github.event.repository.name }}-${{ github.ref_name }}.intunewin
